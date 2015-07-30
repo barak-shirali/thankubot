@@ -1,6 +1,7 @@
 module.exports =
   app:
     title: 'ThankUBot'
+    url: 'http://192.168.1.129'
   
   port: process.env.PORT || 80
 

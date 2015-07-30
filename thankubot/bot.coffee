@@ -1,6 +1,6 @@
 Slack = require '..'
 config = require '../config/config'
-engine = require './engine/core'
+Engine = require './engine/core'
 
 start = ->
   token = config.slack.token
@@ -8,6 +8,8 @@ start = ->
   autoMark = true
 
   slack = new Slack(token, autoReconnect, autoMark)
+
+  engine = new Engine slack
 
   slack.on 'open', ->
     channels = []
@@ -47,13 +49,18 @@ start = ->
 
     # Respond to messages with the reverse of the text received.
     if type is 'message' and text? and channel?
-      response = engine.process text user
-
-      channel.send response
-
-      console.log """
-        @#{slack.self.name} responded with "#{response}"
-      """
+      (engine.process text, user, channel)
+        .then (response) ->
+          if response isnt null
+            message = response.message
+            channel.send message
+            console.log """
+              @#{slack.self.name} responded with "#{message}"
+            """
+          else 
+            console.log """
+              @#{slack.self.name} does not need to respond"
+            """
     else
       #this one should probably be impossible, since we're in slack.on 'message' 
       typeError = if type isnt 'message' then "unexpected type #{type}." else null
