@@ -50,7 +50,7 @@ class CoreEngine
 		else if request.is request.STEP2
 			addressValidator.validate msg, addressValidator.match.streetAddress, (err, exact, inexact) ->
 				if err or exact.length is 0
-					deferred.resolve (new Response request).custom 'Hmmm. I didn’t get that. Can you try entering it again in the format `' + (if inexact.length > 0 then inexact[0] else '1234 Main St, San Francisco, CA 94102') + '`. Thank you.'
+					deferred.resolve (new Response request).custom 'Hmmm. I didn’t get that. Can you try entering it again in the format `' + (if inexact.length > 0 then inexact[0] else '2123 Stuart St, Berkeley, CA 94705') + '`. Thank you.'
 				else
 					request.setRecipientAddress exact[0]
 					success request
@@ -79,7 +79,7 @@ class CoreEngine
 		else if request.is request.STEP6
 			addressValidator.validate msg, addressValidator.match.streetAddress, (err, exact, inexact) ->
 				if err or exact.length is 0
-					deferred.resolve (new Response request).custom 'Hmmm. I didn’t get that. Can you try entering it again in the format `' + (if inexact.length > 0 then inexact[0] else '1234 Main St, San Francisco, CA 94102') + '`. Thank you.'
+					deferred.resolve (new Response request).custom 'Hmmm. I didn’t get that. Can you try entering it again in the format `' + (if inexact.length > 0 then inexact[0] else '2123 Stuart St, Berkeley, CA 94705') + '`. Thank you.'
 				else
 					request.setSenderAddress exact[0]
 					request.complete ->
