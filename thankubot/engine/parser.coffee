@@ -6,12 +6,24 @@ Parser =
   escapeRegExp: (regexp) ->
     regexp.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 
+  getBotNameRegEx: ->
+  	filter = '<@' + @engine.slack.self.id + '>'
+  	filter = filter + '\\s*:?'
+
+  	new RegExp filter, 'g'
+
+  isfor: (msg, channel) ->
+  	if channel.is_channel
+  		filter = @getBotNameRegEx()
+  		filter.test msg
+  	else
+  		true
+
   sanitize: (msg) ->
 
   	# remove slack user id
-  	filter = Parser.escapeRegExp '<@' + @engine.slack.self.id + '>:'
-  	regexBot = new RegExp filter, 'g'
-  	msg = msg.replace regexBot, ''
+  	filter = @getBotNameRegEx()
+  	msg = msg.replace filter, ''
 
   	# trim
   	msg.trim()

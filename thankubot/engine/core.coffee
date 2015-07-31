@@ -18,8 +18,11 @@ class CoreEngine
 
 		request = @queue.get user
 
-		msg = Parser.sanitize msg
+		unless Parser.isfor msg, channel
+			deferred.resolve null
+			return deferred.promise
 
+		msg = Parser.sanitize msg
 
 		if request isnt null
 			console.log 'Current request: ' + request.json()
