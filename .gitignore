@@ -4,3 +4,4 @@ node_modules
 .DS_Store
 ._*
 config/env/local.coffee
+public/bower_components

@@ -14,14 +14,15 @@ module.exports = (sequelize, DataTypes) ->
 			paidAt: DataTypes.DATE
 			stripeToken: DataTypes.STRING
 		}, {
-			scope:
+			scopes:
 				deleted: { where: { status: 'DELETED' }}
-				not_deleted: { where: { status: { ne: 'DELETED' }}}
 				created: { where: { status: 'CREATED' }}
 				failed: { where: { status: 'FAILED' }}
 				expired: { where: { status: 'EXPIRED' }}
 				paid: { where: { status: 'PAID' }}
 				completed: { where: { status: 'COMPLETED' }}
+
+				not_deleted: { where: { status: { ne: 'DELETED' }}}
 				any: (status) ->
 					{ where: { status: status }}
 			,

@@ -3,6 +3,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-shell'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-less'
 
   grunt.initConfig
     watch:
@@ -25,7 +26,8 @@ module.exports = (grunt) ->
         bare: true
       index:
         files:
-          'index.js': 'index.coffee'
+          'app.js': 'app.coffee'
+          'thankubot.js': 'thankubot.coffee'
       examples:
         expand: true
         cwd: 'examples'

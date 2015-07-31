@@ -5,6 +5,11 @@ module.exports =
   
   port: process.env.PORT || 3000
 
+  log:
+    format: 'combined'
+    options:
+      stream: 'access.log'
+
   slack:
     token: 'xoxb-8351686320-bAA5NOTEvH8BYLbQubAaUxwh'
 
