@@ -1,4 +1,5 @@
 q = require 'q'
+sequelize = require '../../config/sequelize'
 
 class Request
   constructor: (user) ->
@@ -45,12 +46,31 @@ class Request
     deferred = q.defer()
 
     # add to database
-    @.setId 'dummyurl'
-    @.setStep @.STEP7
+    sequelize.Request.create @.db()
+      .then (dbRequest) =>
+        # set data
+        @.setId dbRequest.slug
+        @.setStep @.STEP7
 
-    deferred.resolve @
+        deferred.resolve @
+      , (err) =>
+        console.log """
+          ***Database error : #{err}
+        """
+        deferred.reject @
 
     deferred.promise
+
+  db: ->
+    db =
+      slack_user_id: @user.id
+      recipientName: @recipient
+      recipientAddress: @recipientAddress.toString()
+      note: @note
+      handwriting: @handwriting
+      senderName: @sender
+      senderAddress: @senderAddress.toString()
+      status: 'CREATED'
 
   json: ->
     json = 

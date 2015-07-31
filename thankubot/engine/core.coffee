@@ -86,10 +86,8 @@ class CoreEngine
 				else
 					request.setSenderAddress exact[0]
 					request.complete().then (request) =>
-						console.log 'here'
 						@queue.remove request
-						console.log 'here1'
-						deferred.resolve new Response request  	  	
+						deferred.resolve new Response request  	
 
 		
 		deferred.promise
