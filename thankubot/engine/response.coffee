@@ -17,7 +17,7 @@ class Response
       else if request.is request.STEP3
         @.setMessage 'Ok, what would you like your note to say? You can use up to 50 characters.'
       else if request.is request.STEP4
-        @.setMessage 'Aw, they’re so lucky. Do you want this written in male or female handwriting?'
+        @.setMessage 'Aw, they’re so lucky. Do you want this written in `male` or `female` handwriting?'
       else if request.is request.STEP5
         @.setMessage 'Is the note from you? If it is, say `yes` if not, please tell me who the note is from.'
       else if request.is request.STEP6

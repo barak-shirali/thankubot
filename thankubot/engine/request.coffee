@@ -46,8 +46,10 @@ class Request
 
     # add to database
     @.setId 'dummyurl'
+    @.setStep @.STEP7
 
-    deferred.resolve(@)
+    deferred.resolve @
+
     deferred.promise
 
   json: ->

@@ -68,7 +68,7 @@ class CoreEngine
 				request.setHandwriting Parser.gender msg
 				success request
 			else
-				deferred.resolve (new Response request).custom 'Do you want this written in male or female handwriting?'
+				deferred.resolve (new Response request).custom 'Do you want this written in `male` or `female` handwriting?'
 		else if request.is request.STEP5
 			if Parser.isYes msg
 				if user.name
@@ -80,13 +80,15 @@ class CoreEngine
 				request.setSender msg
 				success request
 		else if request.is request.STEP6
-			addressValidator.validate msg, addressValidator.match.streetAddress, (err, exact, inexact) ->
+			addressValidator.validate msg, addressValidator.match.streetAddress, (err, exact, inexact) =>
 				if err or exact.length is 0
 					deferred.resolve (new Response request).custom 'Hmmm. I didn’t get that. Can you try entering it again in the format `' + (if inexact.length > 0 then inexact[0] else '2123 Stuart St, Berkeley, CA 94705') + '`. Thank you.'
 				else
 					request.setSenderAddress exact[0]
-					request.complete ->
-						queue.remove request
+					request.complete().then (request) =>
+						console.log 'here'
+						@queue.remove request
+						console.log 'here1'
 						deferred.resolve new Response request  	  	
 
 		

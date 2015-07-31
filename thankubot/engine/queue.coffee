@@ -12,11 +12,11 @@ class Queue
   	@requests[request.user.id] = request;
 
   remove: (request) ->
-  	delete @.requests[request.user.id]
+  	delete @requests[request.user.id]
   	request
 
   update: (request) ->
-  	@.requests[request.user.id] = request
+  	@requests[request.user.id] = request
   	request
 
 

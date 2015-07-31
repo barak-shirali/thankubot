@@ -3,6 +3,10 @@ config = require '../config/config'
 Engine = require './engine/core'
 
 start = ->
+  console.log """
+    initializing ThankuBot with #{process.env.NODE_ENV} environment...
+  """
+  
   token = config.slack.token
   autoReconnect = true
   autoMark = true
