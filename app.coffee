@@ -2,10 +2,6 @@
 env = process.env.NODE_ENV = process.env.NODE_ENV || 'local'
 config = require './config/config'
 db = require './config/sequelize'
-bot = require './thankubot/bot'
-
-# Start bot
-bot.start()
 
 # Initialize express
 app = (require './config/express') db
@@ -20,3 +16,8 @@ console.log """
 
 # Expose app
 exports = module.exports = app
+
+# Start bot
+bot = require './thankubot/bot'
+
+bot.start()
