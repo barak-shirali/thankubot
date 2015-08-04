@@ -1,0 +1,45 @@
+<center>
+<div class="panel panel-info" data-ng-controller="paymentController" style="width:100%;max-width:500px;margin-top:50px;">
+  <div class="panel-heading">
+    <h3 class="panel-title">Payment for special thanks to {{request.recipientName}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" ng-show="error != ''">
+      <div class="alert alert-danger" role="alert">{{error}}</div>
+    </div>
+    <div class="row">
+    	<label class="col-sm-4 text-left">Recipient</label>
+    	<label class="col-sm-8 text-left">{{request.recipientName}}</label>
+    </div>
+    <div class="row">
+    	<label class="col-sm-4 text-left">Recipient Address</label>
+    	<label class="col-sm-8 text-left">{{request.recipientAddress}}</label>
+    </div>
+    <div class="row">
+    	<label class="col-sm-4 text-left">Note</label>
+    	<label class="col-sm-8 text-left">{{request.note}}</label>
+    </div>
+    <div class="row">
+    	<label class="col-sm-4 text-left">Handwriting</label>
+    	<label class="col-sm-8 text-left">{{ GENDER[request.handwriting] }}</label>
+    </div>
+    <div class="row">
+    	<label class="col-sm-4 text-left">Sender</label>
+    	<label class="col-sm-8 text-left">{{request.senderName}}</label>
+    </div>
+    <div class="row">
+    	<label class="col-sm-4 text-left">Sender Address</label>
+    	<label class="col-sm-8 text-left">{{request.senderAddress}}</label>
+    </div>
+    <hr />
+    <div class="row">
+    	<label class="col-sm-4 text-left">Total amount</label>
+    	<label class="col-sm-8 text-left">$ 5.00</label>
+    </div>
+    <hr />
+    <div clas="row">
+    	<button class="btn btn-success pull-right"  ng-click="onPay()">Confirm and Pay</button>
+    </div>
+  </div>
+</div>
+</center>

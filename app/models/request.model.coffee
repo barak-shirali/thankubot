@@ -37,6 +37,18 @@ module.exports = (sequelize, DataTypes) ->
 							Request.generateSlug instance, next
 						else
 							next slug
+			instanceMethods:
+				json: ->
+					json = 
+						id: @id
+						recipientName: @recipientName
+						recipientAddress: @recipientAddress
+						note: @note
+						handwriting: @handwriting
+						senderName: @senderName
+						senderAddress: @senderAddress
+						slug: @slug
+					json
 			,
 			hooks:
 				beforeCreate: (instance, options, fn) ->

@@ -14,7 +14,8 @@
     "angular-bootstrap": "~0.13.1",
     "bootstrap": "~3.3.5",
     "jquery-ui": "~1.11.4",
-    "angular-stripe": "~4.2.8"
+    "angular-stripe": "~4.2.8",
+    "angular-mask": "~3.0.12"
   },
   "resolutions": {
     "angular": "~1.4.3",

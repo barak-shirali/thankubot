@@ -1,10 +1,10 @@
 doctype html
 //if IE 8
-  html.ie8.no-js(lang='en', data-ng-app='thankubotapp')  
+  html.ie8.no-js(lang='en')  
 //if IE 9
-  html.ie9.no-js(lang='en', data-ng-app='thankubotapp')
+  html.ie9.no-js(lang='en')
 // [if !IE] <!
-html(lang='en', data-ng-app='thankubotapp')
+html(lang='en')
   // <![endif]
   // BEGIN HEAD
   head
@@ -29,7 +29,7 @@ html(lang='en', data-ng-app='thankubotapp')
     
   // END HEAD
   // BEGIN BODY
-  body(ng-controller='AppController')
+  body(ng-controller='appController')
     block content
 
     // BEGIN CORE PLUGINS
@@ -50,7 +50,9 @@ html(lang='en', data-ng-app='thankubotapp')
 
     // BEGIN LIBRARIES
     script(src='/bower_components/underscore/underscore-min.js')
+    script(src='https://js.stripe.com/v2/')
     script(src='/bower_components/angular-stripe/release/angular-stripe.js')
+    script(src='/bower_components/angular-mask/dist/ngMask.min.js')
     // END LIBRARIES
 
     // BEGIN APP LEVEL ANGULARJS SCRIPTS
@@ -59,6 +61,7 @@ html(lang='en', data-ng-app='thankubotapp')
     script(src='/js/constants.js')
 
     // Directives
+    script(src='/js/directives/directives.js')
     // Services
     script(src='/js/services/utils.js')
     // APIs
@@ -66,5 +69,8 @@ html(lang='en', data-ng-app='thankubotapp')
 
     //Application Controllers
     script(src='/pages/layout/layout.js')   
-    script(src='/pages/payment/payment.js')    
+    script(src='/pages/payment/payment.js')
+    script(src='/pages/payment/creditcard.js')
+
+    script(src='/js/init.js')
   // END BODY

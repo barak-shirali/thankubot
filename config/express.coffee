@@ -24,7 +24,6 @@ module.exports = (db) ->
 
 	app.use (req, res, next) ->
 		res.locals.url = req.protocol + '://' + req.headers.host + req.url
-		console.log res.locals.url
 		next()
 
 	app.use compression

@@ -1,0 +1,31 @@
+<div class="panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center"><img src="../assets/img/stripe.png" style="height:30px;" /></h3>
+  </div>
+  <div class="modal-body">
+    <form name="frm">
+      <div class="form-group col-sm-12" ng-show="error != ''">
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+      </div>
+      <div class="form-group col-sm-12">
+        <input type="text" class="form-control" name="number" mask="9999-9999-9999-9999" mask-restrict="reject" placeholder="xxxx-xxxx-xxxx-xxxx" ng-model="card.number" required="true" ng-initial-focus />
+      </div>
+      <div class="form-group">
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="Month" name="exp_month" mask="99" mask-restrict="reject" ng-model="card.exp_month" required="true" ng-initial-focus />
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="Year" name="number" mask="2399" mask-restrict="reject" ng-model="card.exp_year" required="true" ng-initial-focus />
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="CVV" name="number" mask="9999?" mask-restrict="reject" ng-model="card.cvc" required="true" ng-initial-focus />
+        </div>
+      <div style="clear:both;"></div>
+      </div>
+      <div class="form-group col-sm-12">
+        <button class="btn btn-primary pull-right" ng-click="ok()" ng-disabled="!frm.$valid">Checkout with Stripe</button>
+      </div>
+    <div style="clear:both;"></div>
+    </form>
+  </div>
+</div>

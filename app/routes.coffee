@@ -11,4 +11,7 @@ module.exports = (app) ->
 	app.route '/payment/pay/:slug'
 		.post payment.pay
 
+	app.route '/success'
+		.get payment.success
+
 	app.param 'slug', payment.requestBySlug

@@ -4,5 +4,6 @@ block title
 	title Payment for special thanks to #{request.recipientName}
 
 block content
-	h1.
-		Hey
+	script.
+		var request = JSON.parse('!{json}');
+	.payment-container(data-ng-include="'../pages/payment/payment.html'")

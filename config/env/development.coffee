@@ -26,5 +26,5 @@ module.exports =
   	password: 'ip0nalM5ROD7Y8uWPnLuWA'
 
   stripe:
-  	secret_key: ''
-  	publishable_key: ''
+    secret_key: 'sk_test_GdfnQaDwJ0jwMwZkq11IugP5'
+    publishable_key: 'pk_test_vryarSLWowwIqr31dFjrQKtj'
