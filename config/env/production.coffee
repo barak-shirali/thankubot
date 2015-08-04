@@ -1,7 +1,7 @@
 module.exports =
   app:
     title: 'ThankUBot'
-    url: 'http://192.168.1.129'
+    url: 'https://thankubot.herokuapp.com'
   
   port: process.env.PORT || 80
 
@@ -14,10 +14,10 @@ module.exports =
     token: 'xoxb-8351686320-bAA5NOTEvH8BYLbQubAaUxwh'
 
   db:
-  	host: '192.168.1.129'
-  	name: 'thankubot_db'
-  	password: ''
-  	username: 'root'
+  	host: 'us-cdbr-iron-east-02.cleardb.net'
+  	name: 'heroku_b9a64efb4b98d8f'
+  	password: '7c0b7be7'
+  	username: 'be54f6e130f360'
 
   smtp:
   	host: 'smtp.mandrillapp.com'
