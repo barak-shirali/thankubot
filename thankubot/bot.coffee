@@ -84,6 +84,10 @@ start = ->
   slack.on 'error', (error) ->
     console.error "Error: #{error}"
 
+  slack.on 'close', ->
+    console.log 'Connection closed. Retrying...'
+    slack.reconnect()
+
 
   slack.login()
 
