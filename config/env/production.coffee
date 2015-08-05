@@ -20,10 +20,11 @@ module.exports =
   	username: 'be54f6e130f360'
 
   smtp:
-  	host: 'smtp.mandrillapp.com'
-  	port: 587
-  	username: 'barak.shirali@gmail.com'
-  	password: 'ip0nalM5ROD7Y8uWPnLuWA'
+    host: 'smtp.mandrillapp.com'
+    port: 587
+    username: 'barak.shirali@gmail.com'
+    password: 'ip0nalM5ROD7Y8uWPnLuWA'
+    email: 'hof@assi.st'
 
   stripe:
   	secret_key: 'sk_test_GdfnQaDwJ0jwMwZkq11IugP5'
