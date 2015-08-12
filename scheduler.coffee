@@ -17,7 +17,7 @@ db.Request.scope 'paid'
 				(err, csv) ->
 					if err isnt null
 						console.log err
-					else
+					else if requests.length > 0
 						mailer.sendMail
 							from: config.smtp.email
 							to: config.smtp.email
