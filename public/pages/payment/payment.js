@@ -5,6 +5,7 @@ angular.module('thankubotapp')
 
 		var init = function() {
 			$scope.request = new Payment(request);
+			$scope.price = price;
 
 			$scope.GENDER = GENDER;
 
